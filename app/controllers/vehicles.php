@@ -2,6 +2,7 @@
 class vehicles extends Controller {
     public function __construct(){
         $this->vehicleModel = $this->model('vehicle');
+        $this->RentModel = $this->model('Rent');
       }
         public function vehicle(){
         if (isset($_SESSION['loginAdmin']) && $_SESSION['loginAdmin']  === true){
@@ -205,12 +206,45 @@ public function delete_vehicle(){
     }
     }
     public function end_res(){
+      if (isset($_SESSION['loginAdmin']) && $_SESSION['loginAdmin']  === true){
+        $id = $_GET['id'];
+        $veh= $this->vehicleModel->getVeh($id);
+        $data = [
+          'veh' => $veh
+        ];
+        foreach($data['veh'] as $veh)
+        $carName=$veh->véhicule_résérver;
+        $carModel=$veh->véhicule_résérver_model;
+        $carNumber=$veh->number_of_véhicule;
+        $carDispo=$this->vehicleModel->checkVeh($carName,$carModel);
+        $data1 = [
+          'carDispo'=> $carDispo
+        ];
+        foreach($data1['carDispo'] as $carDispo)
+        $dispo=$carDispo->Disponible;
+        $car=$carDispo->id;
+        $Dis= ( (int)$carDispo + (int)$carNumber );
+        if($this->RentModel->updateQuantity($Dis,$car)===true){
+        if($this->vehicleModel->end_res($id)===true){
+            flash('register_success',' reservation ended successfully');
+            redirect('vehicles/ReservationAdmin');
+          }
+          else{
+            flash1('register_not','something went wrong , try again');
+            redirect('vehicles/ReservationAdmin');
+          }
+        }else{
+          flash1('register_not','something went wrong , try again');
+          redirect('vehicles/ReservationAdmin');
+        }
+
+      }
 
     }
-    public function delete_Reservation(){
-      
-    }
-}
+    
+      }
+
+
 
 
 
