@@ -63,6 +63,11 @@ height: 40px;
                         <i class="fas fa-users"></i>
                         </a>
                     </li>
+                    <li>
+                        <a href="<?php echo URLROOT; ?>/vehicles/Our_Statistics" class="nav-link py-3 px-2" title="users" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Customers">
+                        <i class="fas fa-chart-line"></i>
+                        </a>
+                    </li>
                 </ul>
                 <div class="dropdown">
                     <a href="#" class="d-flex align-items-center justify-content-center p-3 link-dark text-decoration-none dropdown-toggle" id="dropdownUser3" data-bs-toggle="dropdown" aria-expanded="false">
