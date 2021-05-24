@@ -121,6 +121,38 @@ public function show_Res(){
     $result = $stmt->fetchAll(PDO::FETCH_OBJ);
     return $result;  
 }
+public function checkVeh($carName,$carModel){
+    $query = "SELECT * FROM `véhicule` where `name` = '$carName' and `model`='$carModel'";
+    $stmt = $this->pdo->prepare($query);
+    $stmt->execute();
+    $result = $stmt->fetchAll(PDO::FETCH_OBJ);
+    return $result;
+}
+public function end_res($id){
+    $query = "delete from `résérvation`  where `id` = '$id'";
+    $stmt = $this->pdo->prepare($query);
+    if($stmt->execute()){
+        return true;
+    }else{
+        return false;
+    }
+}
+public function getVeh($id){
+    $query = "SELECT * FROM `résérvation` where `id` = '$id'";
+    $stmt = $this->pdo->prepare($query);
+    $stmt->execute();
+    $result = $stmt->fetchAll(PDO::FETCH_OBJ);
+    return $result;
+}
+public function delete_res($id){
+    $query = "delete from `résérvation`  where `id` = '$id'";
+    $stmt = $this->pdo->prepare($query);
+    if($stmt->execute()){
+        return true;
+    }else{
+        return false;
+    }
+}
 
 }
 
