@@ -85,7 +85,7 @@
       <td ><?php echo $Res->date_fin ?></td>
       <td ><?php echo $Res->Price ?></td>
       <td ><?php echo $Res->number_of_véhicule ?></td>
-      <td  ><a  href="<?php echo URLROOT; ?>/dashboardUsers/update_Reservation?id=<?php echo $Res->id ?>" type="button" class="btn btn-primary"><i class="fas fa-edit"></i></a></td>
+      <td  ><a  href="<?php echo URLROOT; ?>/dashboardUsers/end_res?id=<?php echo $Res->id ?>" type="button" class="btn btn-primary"><i class="fas fa-edit"></i></a></td>
       <td  ><a href="<?php echo URLROOT; ?>/dashboardUsers/delete_Reservation?id=<?php echo $Res->id ?>" onclick="" type="button" class="btn btn-danger"><i class="fas fa-trash"></i></a></td>
     </tr>
 
