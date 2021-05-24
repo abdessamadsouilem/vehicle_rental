@@ -65,18 +65,24 @@ class Rents extends Controller {
              $months*30*60*60*24)/ (60*60*24));
         $price1=$number_of_véhicule*$Price*$days;   
         if($this->RentModel->CheckRent($number_of_véhicule,$date_fin,$date_réserve,$user_résérvé_par,$véhicule_résérver,$price1,$véhicule_résérver_model)===true){
+            if($Disponible1>0){
             $Disponible=$Disponible1-$number_of_véhicule;
             if($this->RentModel->updateQuantity($Disponible,$id)===true){
              flash('register_success','Résérvation add success');
              redirect('Menus/showVehicle');
-            } 
-          } else {
-            flash1('register_not','something went wrong , try again');
-            redirect('Menus/showVehicle');
-          }  
+            } else {
+                flash1('register_not','something went wrong , try again');
+                redirect('Menus/showVehicle');
+              }
+             
+   }else {
+    flash1('register_not','car not disponible');
+    redirect('Menus/showVehicle');
    }
 }
-
-
-
+    }
 }
+}
+
+
+    

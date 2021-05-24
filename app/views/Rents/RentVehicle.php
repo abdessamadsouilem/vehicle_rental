@@ -66,7 +66,7 @@
          echo date('Y-m-d');
      ?>" id="Day2" required>
      <label for="number_of_véhicule"><b>More than one :</b></label>
-    <input type="number" name="number_of_véhicule" min="1" max="<?php echo $update->Disponible ?>" value="1"   required>
+    <input type="number" name="number_of_véhicule"   value="1"   required>
     <button type="submit" value="RentCar" class="btn">Rent</button>
 
     </form>
