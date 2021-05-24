@@ -204,6 +204,12 @@ public function delete_vehicle(){
         redirect("users/login");
     }
     }
+    public function end_res(){
+
+    }
+    public function delete_Reservation(){
+      
+    }
 }
 
 
