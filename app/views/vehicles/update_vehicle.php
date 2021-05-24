@@ -56,7 +56,7 @@
     <label for="Price"><b>Price :</b></label>
     <input type="text" name="Price" value="<?php echo $update->Price ?>"  required>
     <label for="img">Select image:</label>
-    <input type="file" id="image" value="<?php echo $update->image ?>" name="image" />
+    <input type="file" id="image1" value="<?php echo $update->image ?>" name="image" />
     <label for="description"><b>Description :</b></label>
     <input type="text" name="description" value="<?php echo $update->description ?>"  required>
     <label for="Disponible"><b>Quantity :</b></label>
