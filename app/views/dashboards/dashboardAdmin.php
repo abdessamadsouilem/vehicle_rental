@@ -59,7 +59,7 @@ $name =$_SESSION['name'];
   <div class="card-body">
     <h5 class="card-title">Our Statistics</h5>
     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="<?php echo URLROOT; ?>/vehicles/Reservation" class="btn btn-primary">Go somewhere</a>
+    <a href="<?php echo URLROOT; ?>/vehicles/Our_Statistics" class="btn btn-primary">Our Statistics</a>
   </div>
 </div>
 </div>
