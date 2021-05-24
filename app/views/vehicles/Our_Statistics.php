@@ -57,36 +57,43 @@
 <h2 class="page-header" >vehicle réserver </h2>
  <div><h4>Our réservation</h4></div>
  <br>
- <canvas  id="chartjs_bar1"></canvas> 
+ <canvas  id="chartjs_barRes"></canvas> 
  <br>
  </div>
  
  </div>
 </div>
 <?php foreach($data['Res'] as $Res) : ?>
-    <?php $result= $Res->model; 
+<?php $result= $Res->model; 
     $total=$Res->Disponible;
 $car = [
     'result' => $result,
     'total' => $total
 ];
-$name[]= $car['result'];
-$dis[]= $car['total'];
+$nameCar[]= $car['result'];
+$disCar[]= $car['total'];
+
 ?>
 <?php endforeach;?>
 
 <?php foreach($data['Res1'] as $Res1) : ?>
 <?php  $result1= $Res1->véhicule_résérver_model; 
-    $total1=$Res1->number_of_véhicule;
+$total1=$Res1->number_of_véhicule;
 $car1 = [
     'result1' => $result1,
     'total1' => $total1
 ];
-$name1[]= $car1['result1'];
+if($car1['total1']!=null){
+    $name1[]= $car1['result1'];
 $dis1[]= $car1['total1'];
+}else{
+    $name1=0;
+    $dis1=0;
+}
+
+
 ?>
 <?php endforeach;?>
-
 
  <script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
 <script type="text/javascript">
@@ -95,7 +102,7 @@ $dis1[]= $car1['total1'];
                 var myChart = new Chart(ctx, {
                     type: 'pie',
                     data: {
-                        labels:<?php echo json_encode($name); ?>,
+                        labels:<?php echo json_encode($nameCar); ?>,
                         datasets: [{
                             backgroundColor: [
                                "#5969ff",
@@ -106,7 +113,7 @@ $dis1[]= $car1['total1'];
                                 "#7040fa",
                                 "#ff004e"
                             ],
-                            data:<?php echo json_encode($dis); ?>,
+                            data:<?php echo json_encode($disCar); ?>,
                         }]
                     },
                     options: {
@@ -123,9 +130,10 @@ $dis1[]= $car1['total1'];
                     },
                 }
                 });
-                var ctx = document.getElementById("chartjs_bar1").getContext('2d');
                 
-                var myChart = new Chart(ctx, {
+        var ctx1 = document.getElementById("chartjs_barRes").getContext('2d');
+                
+                var myChart = new Chart(ctx1, {
                     type: 'bar',
                     data: {
                         labels:<?php echo json_encode($name1); ?>,
@@ -162,7 +170,7 @@ $dis1[]= $car1['total1'];
                                 beginAtZero: true,
                                 steps: 10,
                                 stepValue: 5,
-                                max: 30
+                                max: 20
                             }
                         }]
                 }
