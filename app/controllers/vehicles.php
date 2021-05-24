@@ -241,8 +241,22 @@ public function delete_vehicle(){
       }
 
     }
+
+   public function Our_Statistics(){
+    if (isset($_SESSION['loginAdmin']) && $_SESSION['loginAdmin']  === true){
+      $Res = $this->vehicleModel->show_vehicle();
+      $Res1 = $this->vehicleModel->show_Res();
+            $data = [
+              'Res' => $Res,
+              'Res1' => $Res1
+            ];
+      $this->view('vehicles/Our_Statistics',$data);
+    }else{
+      redirect("users/login");
+  }
+   }
     
-      }
+}
 
 
 
