@@ -1,4 +1,6 @@
 <?php require APPROOT . '/views/inc/header.php'; ?>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+
 <style>
 #create_vehicle{
     margin-top:6rem;
@@ -71,7 +73,6 @@
       <th >Price   </th>
       <th  >quantity  </th>
       <th  >Reservation end  </th>
-      <th  >delete  </th>
     </tr>
   </thead>
   <?php foreach($data['Res'] as $Res) : ?>
@@ -85,8 +86,7 @@
       <td ><?php echo $Res->date_fin ?></td>
       <td ><?php echo $Res->Price ?></td>
       <td ><?php echo $Res->number_of_véhicule ?></td>
-      <td  ><a  href="<?php echo URLROOT; ?>/dashboardUsers/end_res?id=<?php echo $Res->id ?>" type="button" class="btn btn-primary"><i class="fas fa-edit"></i></a></td>
-      <td  ><a href="<?php echo URLROOT; ?>/dashboardUsers/delete_Reservation?id=<?php echo $Res->id ?>" onclick="" type="button" class="btn btn-danger"><i class="fas fa-trash"></i></a></td>
+      <td  ><a  href="<?php echo URLROOT; ?>/vehicles/end_res?id=<?php echo $Res->id ?>" type="button" class="btn btn-danger"><i class="fas fa-trash"></i></a></td>
     </tr>
 
   </tbody>

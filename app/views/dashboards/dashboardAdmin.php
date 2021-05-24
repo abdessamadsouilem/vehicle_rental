@@ -50,7 +50,7 @@ $name =$_SESSION['name'];
   <img src="https://images.pexels.com/photos/97079/pexels-photo-97079.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="card-img-top" alt="...">
   <div class="card-body">
     <h5 class="card-title">Manage Reservation</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <p class="card-text">if the reservation end you can delete it to keep your system clean .</p>
     <a href="<?php echo URLROOT; ?>/vehicles/ReservationAdmin" class="btn btn-primary">Manage Reservation</a>
   </div>
 </div>
