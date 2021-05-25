@@ -66,6 +66,14 @@ class dashboardUsers extends Controller {
         $date_réserve = $_POST['date_réserve'];
         $date_fin = $_POST['date_fin'];
         $number_of_véhicule = $_POST['number_of_véhicule'];
+        $check=$this->dashboardUserModel->checkChange1($id);
+        $check2 = [
+            'check' => $check,
+        ];
+        foreach($check2['check'] as $check)
+        $Name1=$check->véhicule_résérver;
+        $Model1=$check->véhicule_résérver_model;
+        $number1=$check->number_of_véhicule;
         $date1=strtotime($date_réserve);
         $date2=strtotime($date_fin);
         $diff = abs($date2 - $date1); 
@@ -83,14 +91,14 @@ class dashboardUsers extends Controller {
         $Price1 =$carPrice->Price;
         $Disponible1 =$carPrice->Disponible;
         $Price = $number_of_véhicule*$Price1*$days;
-             if($this->dashboardUserModel->checkChange1($id,$véhicule_résérver,$véhicule_résérver_model,$user_résérvé_par,$number_of_véhicule)===true){
-                if($this->dashboardUserModel->update_Reservation2($id,$date_réserve,$date_fin,$Price)){
-                    flash('register_success','Résérvation updated success');
-                    redirect('dashboardUsers/Reservation');
-                }
-             }
-        else if($this->dashboardUserModel->checkChange($id,$véhicule_résérver,$véhicule_résérver_model,$user_résérvé_par,$date_réserve,$date_fin,$number_of_véhicule)===false){
-        if($this->dashboardUserModel->getPrice($véhicule_résérver1,$véhicule_résérver_model1)!=null){
+        if($Name1==$véhicule_résérver1 && $Model1==$véhicule_résérver_model1 && $number1==$number_of_véhicule){
+            if($this->dashboardUserModel->update_Reservation2($id,$date_réserve,$date_fin,$Price)){
+                        flash('register_success','Résérvation updated success');
+                        redirect('dashboardUsers/Reservation');
+            }
+        
+        
+    }elseif($this->dashboardUserModel->getPrice($véhicule_résérver1,$véhicule_résérver_model1)!=null){
         $user=$_SESSION['name'];
         $update3 = $this->dashboardUserModel->getInformationRes($id,$user);
         $data4 = [
@@ -143,7 +151,7 @@ redirect('dashboardUsers/Reservation');
 }
     }
 }
-    }
+    
 
     
     public function delete_Reservation(){

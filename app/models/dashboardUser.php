@@ -82,22 +82,21 @@ public function delete_Reservation($id){
   }
 }
 public function checkChange($id,$véhicule_résérver,$véhicule_résérver_model,$user_résérvé_par,$date_réserve,$date_fin,$number_of_véhicule){
-  $query = "SELECT * FROM `résérvation` where `id` = '$id' and `véhicule_résérver` = '$véhicule_résérver' and `véhicule_résérver_model` = '$véhicule_résérver_model' and `number_of_véhicule` = '$number_of_véhicule' and `date_réserve` = '$date_réserve' and `date_fin` = '$date_fin' ";
+  $query = "SELECT * FROM `résérvation` where `id` = '$id'";
   $stmt = $this->pdo->prepare($query);
-    if($stmt->execute()){
-        return true;
-    }else{
-        return false;
-    }
+  $stmt->execute();
+  if($stmt->execute()){
+    return true;
+}else{
+    return false;
 }
-public function checkChange1($id,$véhicule_résérver,$véhicule_résérver_model,$user_résérvé_par,$number_of_véhicule){
-  $query = "SELECT * FROM `résérvation` where `id` = '$id' and `véhicule_résérver` = '$véhicule_résérver' and `véhicule_résérver_model` = '$véhicule_résérver_model' and `number_of_véhicule` = '$number_of_véhicule' ";
+}
+public function checkChange1($id){
+  $query = "SELECT * FROM `résérvation` where `id` = '$id'";
   $stmt = $this->pdo->prepare($query);
-    if($stmt->execute()){
-        return true;
-    }else{
-        return false;
-    }
+  $stmt->execute();
+  $result = $stmt->fetchAll(PDO::FETCH_OBJ);
+  return $result;
 }
 public function update_Reservation2($id,$date_réserve,$date_fin,$Price){
   $id;
