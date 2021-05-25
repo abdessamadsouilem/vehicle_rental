@@ -223,7 +223,7 @@ public function delete_vehicle(){
         foreach($data1['carDispo'] as $carDispo)
         $dispo=$carDispo->Disponible;
         $car=$carDispo->id;
-        $Dis= ( (int)$carDispo + (int)$carNumber );
+        $Dis= ( (int)$dispo + (int)$carNumber );
         if($this->RentModel->updateQuantity($Dis,$car)===true){
         if($this->vehicleModel->end_res($id)===true){
             flash('register_success',' reservation ended successfully');

@@ -156,7 +156,24 @@ redirect('dashboardUsers/Reservation');
     
     public function delete_Reservation(){
         if (isset($_SESSION['User']) && $_SESSION['User']  === true){
-            $id=$_GET['id']; 
+        $id=$_GET['id']; 
+        $veh= $this->vehicleModel->getVeh($id);
+        $data = [
+          'veh' => $veh
+        ];
+        foreach($data['veh'] as $veh)
+        $carName=$veh->véhicule_résérver;
+        $carModel=$veh->véhicule_résérver_model;
+        $carNumber=$veh->number_of_véhicule;
+        $carDispo=$this->vehicleModel->checkVeh($carName,$carModel);
+        $data1 = [
+          'carDispo'=> $carDispo
+        ];
+        foreach($data1['carDispo'] as $carDispo)
+        $dispo=$carDispo->Disponible;
+        $car=$carDispo->id;
+        $Dis= ( (int)$dispo + (int)$carNumber );
+        if($this->RentModel->updateQuantity($Dis,$car)===true){
             if($this->dashboardUserModel->delete_Reservation($id)===true){
               flash('register_success',' vehicle deleted successfully');
               redirect('dashboardUsers/Reservation');
@@ -164,7 +181,7 @@ redirect('dashboardUsers/Reservation');
               flash1('register_not','something went wrong , try again');
               redirect('dashboardUsers/Reservation');
             } 
-        }else{
+        }}else{
           flash1('register_not','something went wrong , try again');
           
               redirect('dashboardUsers/Reservation');
