@@ -63,7 +63,7 @@
      ?>" required>
      <label for="date_fin"><b>Drop-off Date :</b></label>
     <input type="date" name="date_fin" min="<?php
-         echo date('Y-m-d');
+         echo date('Y-m-d',strtotime(" + 1day"));
      ?>" id="Day2" required>
      <label for="number_of_véhicule"><b>More than one :</b></label>
     <input type="number" name="number_of_véhicule"   value="1"   required>
