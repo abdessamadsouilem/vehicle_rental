@@ -104,7 +104,7 @@ class dashboardUsers extends Controller {
         $data4 = [
                 'update5' => $update3,
         ];
-        foreach($data4['update5'] as $update3)
+        foreach($data4['update5'] as $update3)   
         $qun=$update3->number_of_véhicule;
         $n=$update3->véhicule_résérver;
         $m=$update3->véhicule_résérver_model;
