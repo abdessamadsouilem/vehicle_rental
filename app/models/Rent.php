@@ -55,6 +55,18 @@ public function updateQuantity($Disponible,$id){
   }
   
 }
-
-
+public function getLastId(){
+  $query = "SELECT `id` FROM `résérvation` ORDER BY id DESC LIMIT 1";
+  $stmt = $this->pdo->prepare($query);
+  $stmt->execute();
+  $result = $stmt->fetchAll(PDO::FETCH_OBJ);
+  return $result;
+} 
+public function getAl($id){
+  $query = "SELECT * FROM `résérvation` where `id` = '$id'";
+  $stmt = $this->pdo->prepare($query);
+  $stmt->execute();
+  $result = $stmt->fetchAll(PDO::FETCH_OBJ);
+  return $result;
+}
 }
