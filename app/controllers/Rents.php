@@ -68,8 +68,8 @@ class Rents extends Controller {
             if($Disponible1>0){
             $Disponible=$Disponible1-$number_of_véhicule;
             if($this->RentModel->updateQuantity($Disponible,$id)===true){
-             flash('register_success','Résérvation add success');
-             redirect('Menus/showVehicle');
+            
+             redirect('Rents/Recus');
             } else {
                 flash1('register_not','something went wrong , try again');
                 redirect('Menus/showVehicle');
@@ -81,6 +81,23 @@ class Rents extends Controller {
    }
 }
     }
+}
+public function Recus(){
+    if((isset($_SESSION['User']) && $_SESSION['User']  === true)){
+        $veh= $this->RentModel->getLastId();
+        $data = [
+          'veh' => $veh
+        ];
+        foreach($data['veh'] as $veh)
+        $id=$veh->id;
+        $veh1= $this->RentModel->getAl($id);
+        $data1 = [
+          'veh1' => $veh1
+        ];
+
+        $this->view("Rents/Recus",$data1);
+    }
+    
 }
 }
 
