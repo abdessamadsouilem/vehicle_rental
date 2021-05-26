@@ -234,7 +234,7 @@ h1
         <small><?php echo $veh1->id?></small>
         <h3>Name of User : <?php echo $veh1->user_résérvé_par ?></h3>
         <div class="even-date">
-         <i class="fa fa-calendar"></i>
+         
          <time>
            <span>Car Name : <?php echo $veh1->véhicule_résérver ?></span>
            <span>Car Model : <?php echo $veh1->véhicule_résérver_model ?></span>
@@ -242,7 +242,7 @@ h1
          </time>
         </div>
         <div class="even-info">
-          <i class="fa fa-map-marker"></i>
+          
           <p>
             Price : <?php echo $veh1->Price ?>
           </p>
