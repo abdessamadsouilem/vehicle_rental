@@ -1,11 +1,15 @@
 <?php
   class Pages extends Controller {
     public function __construct(){
-     
+      $this->vehicleModel = $this->model('vehicle');
     }
     
     public function index(){
-      $this->view('pages/index');
+      $showAll=$this->vehicleModel->show_vehicle_All();
+      $data = [
+        'showAll' => $showAll
+      ];
+      $this->view('pages/index',$data);
     }
 
     public function about(){

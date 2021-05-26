@@ -45,9 +45,7 @@ public function getInformation($id){
           $result = $stmt->fetchAll(PDO::FETCH_OBJ);
           return $result;
 }
-public function update_vehicle(){
-    
-}
+
 public function update_vehicle1($id,$name,$model,$Price,$image,$image1,$description,$Disponible,$catégory){
     $id;
     $upload= "public\upload/".$image;
@@ -153,7 +151,13 @@ public function delete_res($id){
         return false;
     }
 }
-
+public function show_vehicle_All(){
+    $query = "SELECT * FROM `véhicule` where `catégory`='car'";
+    $stmt = $this->pdo->prepare($query);
+    $stmt->execute();
+    $result = $stmt->fetchAll(PDO::FETCH_OBJ);
+    return $result;  
+}
 }
 
 

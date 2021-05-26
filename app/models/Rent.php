@@ -55,8 +55,8 @@ public function updateQuantity($Disponible,$id){
   }
   
 }
-public function getLastId(){
-  $query = "SELECT `id` FROM `résérvation` ORDER BY id DESC LIMIT 1";
+public function getLastId($user){
+  $query = "SELECT `id` FROM `résérvation` where `user_résérvé_par` ='$user' ORDER BY id DESC LIMIT 1  ";
   $stmt = $this->pdo->prepare($query);
   $stmt->execute();
   $result = $stmt->fetchAll(PDO::FETCH_OBJ);

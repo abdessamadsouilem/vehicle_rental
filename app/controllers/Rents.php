@@ -84,7 +84,8 @@ class Rents extends Controller {
 }
 public function Recus(){
     if((isset($_SESSION['User']) && $_SESSION['User']  === true)){
-        $veh= $this->RentModel->getLastId();
+        $user=$_SESSION['name'];
+        $veh= $this->RentModel->getLastId($user);
         $data = [
           'veh' => $veh
         ];

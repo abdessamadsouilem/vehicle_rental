@@ -37,7 +37,7 @@ class vehicles extends Controller {
                     flash('register_success','New vehicle added successfully');
                     redirect('vehicles/vehicle');
                   } else {
-                    flash1('register_not','something went wrong , try again"""');
+                    flash1('register_not','something went wrong , try again');
                     redirect('vehicles/vehicle');
                   } 
               }else{
