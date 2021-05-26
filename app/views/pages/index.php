@@ -1,13 +1,31 @@
 <?php require APPROOT . '/views/inc/header.php'; ?>
 
 <style>
+.container-fluid {
+  
+     padding-right: 0px;
+    padding-left: 0px;
+  
+}
+a.li {
+  color: inherit;
+  text-decoration: inherit;
+}
+h1{
+  text-align:center;
+}
+.cards{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+.card{
+  margin-left:12px;
+}
     #image{
     width: 100%;
     height: 550px;
-    /* background-image:linear-gradient(
-      rgba(0, 0, 0, 0.5),
-      rgba(0, 0, 0, 0.5)
-    ), url(../img/60a1b659bc7a2.jpg); */
+    background-image:url(<?php echo URLROOT; ?>/public/img/60a1b659bc7a2.jpg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: 100% 550px;
@@ -18,6 +36,11 @@
 }
 #image h1{
     color: white;
+}
+
+.wow{
+    width: 268px;
+    height: 191px;
 }
 </style>
 
@@ -30,8 +53,50 @@
 <br>
 <h1>is our main goal.</h1>
 <br>
-<button type="button" class="btn btn-light">ONLINE BOOKING</button>
+<a href="<?php echo URLROOT; ?> /Menus/showVehicle" type="button" class="btn btn-light">ONLINE BOOKING</a>
 </div>
+<br>
+<br>
+<h1>Our Catégories</h1>
+<br>
+<div class="cards">
+<a class="li" href="#">
+<div class="card" style="width: 18rem;">
+  <img class="wow" src="<?php echo URLROOT; ?>/public/img/1.png" class="card-img-top" alt="...">
+  <div class="card-body">
+    <p class="card-text">All Véhicles.</p>
+  </div>
+</div>
+</a>
+<a class="li" href="#">
+<div class="card" style="width: 18rem;">
+  <img src="<?php echo URLROOT; ?>/public/img/depositphotos_171122936-stock-photo-new-cars.jpg" class="card-img-top" alt="...">
+  <div class="card-body">
+    <p class="card-text">All Cars.</p>
+  </div>
+</div>
+</a>
+<a class="li" href="#">
+<div class="card" style="width: 18rem;">
+  <img src="<?php echo URLROOT; ?>/public/img/ONEMOTO_L1002967-min.jpg" class="card-img-top" alt="...">
+  <div class="card-body">
+    <p class="card-text">All Moto.</p>
+  </div>
+</div>
+</a>
+<a class="li" href="#">
+<div class="card" style="width: 18rem;">
+  <img src="<?php echo URLROOT; ?>/public/img/1.jpg" class="card-img-top" alt="...">
+  <div class="card-body">
+    <p class="card-text">All Trucks.</p>
+  </div>
+</div>
+</a>
+
+</div>
+<br>
+<br>
+<div id="all">
 
 </div>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
@@ -45,50 +110,16 @@ if (x.textContent == "Rent a Vehicle") {
 } else { 
     x.textContent = "Rent a Vehicle"; 
 }}
-setInterval(swapText, 3000);
-//Initializing
-// var i = 0;
-// var images = []; //array
-// var time = 3000; // time in millie seconds
 
-// //images
-
-// images[0] = "url(../img/60a1b659bc7a2.jpg)";
-// images[1] = "linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)),url(../img/60a1d4b325870.jpg)";
-// images[2] = "linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.5)),url(../img/60a12dd2362f3.jpg)";
-// //function
-
-// function changeImage() {
-//     var el = document.getElementById('image');
-//     el.style.backgroundImage = images[i];
-//     if (i < images.length - 1) {
-//         i++;
-//     } else {
-//         i = 0;
-//     }
-    
-// }
-// function changeBackgroundSmoothly() {
-//     $('#image').fadeOut(1000, changeImage); //this is new, will fade out smoothly
-// }
-// setInterval(changeBackgroundSmoothly,3000);
-var images = ["../img/60a1b659bc7a2.jpg", "../img/60a1d4b325870.jpg", "../img/60a12dd2362f3.jpg"];
-$(function () {
-        var i = 0;
-        $("image").css("background-image", "url(images[i])");
-        setInterval(function () {
-            i++;
-            if (i == images.length) {
-                i = 0;
-            }
-            $("#image").fadeOut("slow", function () {
-                $(this).css("background-image", "url(images[i])");
-                $(this).fadeIn("slow");
-            });
-        }, 5000);
-    });
-
-
+const targetDiv = document.getElementById("third");
+const btn = document.getElementById("toggle");
+btn.onclick = function () {
+  if (targetDiv.style.display !== "none") {
+    targetDiv.style.display = "block";
+  } else {
+    targetDiv.style.display = "none";
+  }
+};
 </script>
 
 
