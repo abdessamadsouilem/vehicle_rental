@@ -47,13 +47,15 @@
 <?php flash('register_success'); ?>
 <form action="<?php echo URLROOT; ?>/Rents/CheckRent" method="POST" class="form-container" enctype="multipart/form-data">
     <h1>Rent this car "<?php echo $update->name ?>"</h1>
-    <label for="véhicule_résérver"><b>Car Name :</b></label>
+    <label for="véhicule_catégory"><b>Véhicle catégory:</b></label>
+    <input type="text" name="véhicule_catégory" value="<?php echo $update->catégory ?>"   readonly>
+    <label for="véhicule_résérver"><b>Véhicle Name :</b></label>
     <input type="text" name="véhicule_résérver" value="<?php echo $update->name ?>"   readonly>
-    <label for="model"><b>Car Model :</b></label>
+    <label for="model"><b>Véhicle Model :</b></label>
     <input type="text" name="model"  value="<?php echo $update->model ?>" readonly>
     <input type="text" name="Disponible" style="display:none;"  value="<?php echo $update->Disponible ?>" readonly>
     <input type="text" name="id" style="display:none;"  value="<?php echo $update->id ?>" readonly>
-    <label for="Price"><b>Car Price (for one day) :</b></label>
+    <label for="Price"><b>Véhicle Price (for one day) :</b></label>
     <input type="text" name="Price"  value="<?php echo $update->Price ?>" readonly>
     <label for="user_résérvé_par"><b>Your name :</b></label>
     <input type="text" name="user_résérvé_par"  value="<?php echo $user->name ?>" readonly>

@@ -48,6 +48,7 @@ class Rents extends Controller {
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
         $id=$_POST['id'];
         $véhicule_résérver = $_POST['véhicule_résérver'];
+        $véhicule_catégory = $_POST['véhicule_catégory'];
         $véhicule_résérver_model=$_POST['model'];
         $user_résérvé_par = $_POST['user_résérvé_par'];
         $Disponible1=$_POST['Disponible'];
@@ -64,7 +65,7 @@ class Rents extends Controller {
         $days = floor(($diff - $years * 365*60*60*24 - 
              $months*30*60*60*24)/ (60*60*24));
         $price1=$number_of_véhicule*$Price*$days;   
-        if($this->RentModel->CheckRent($number_of_véhicule,$date_fin,$date_réserve,$user_résérvé_par,$véhicule_résérver,$price1,$véhicule_résérver_model)===true){
+        if($this->RentModel->CheckRent($number_of_véhicule,$date_fin,$date_réserve,$user_résérvé_par,$véhicule_résérver,$price1,$véhicule_résérver_model,$véhicule_catégory)===true){
             if($Disponible1>0){
             $Disponible=$Disponible1-$number_of_véhicule;
             if($this->RentModel->updateQuantity($Disponible,$id)===true){
