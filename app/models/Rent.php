@@ -31,8 +31,8 @@ class Rent {
           $result = $stmt->fetchAll(PDO::FETCH_OBJ);
           return $result;
 }
-public function CheckRent($number_of_véhicule,$date_fin,$date_réserve,$user_résérvé_par,$véhicule_résérver,$price1,$véhicule_résérver_model,$véhicule_catégory){
-  $query = "INSERT INTO `résérvation` (`véhicule_résérver`, `user_résérvé_par`, `date_réserve`, `date_fin`, `Price`, `number_of_véhicule`,`véhicule_résérver_model`,`véhicule_catégory`) VALUES('$véhicule_résérver', '$user_résérvé_par', '$date_réserve', '$date_fin', '$price1', '$number_of_véhicule','$véhicule_résérver_model','$véhicule_catégory')";
+public function CheckRent($number_of_véhicule,$date_fin,$date_réserve,$user_résérvé_par,$véhicule_résérver,$price1,$véhicule_résérver_model,$véhicule_catégory,$date_get_reservation){
+  $query = "INSERT INTO `résérvation` (`véhicule_résérver`, `user_résérvé_par`, `date_réserve`, `date_fin`, `Price`, `number_of_véhicule`,`véhicule_résérver_model`,`véhicule_catégory`,`date_get_reservation`) VALUES('$véhicule_résérver', '$user_résérvé_par', '$date_réserve', '$date_fin', '$price1', '$number_of_véhicule','$véhicule_résérver_model','$véhicule_catégory','$date_get_reservation')";
   $stmt = $this->pdo->prepare($query);
   if($stmt->execute()){
       return true;
