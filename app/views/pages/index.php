@@ -8,6 +8,16 @@
 .carousel-caption {
     top: 226px;
 }
+@media only screen and (max-width: 7870px) {
+  .w-100 {
+    width: 100%!important;
+    height: 700px;
+}
+.d-none {
+    display: block !important;
+}
+}
+
 </style>
 
 <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
