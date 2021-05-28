@@ -1,4 +1,5 @@
-<?php foreach($data['updates'] as $update)  ?>
+<?php foreach($data['update'] as $update)  ?>
+<?php foreach($data['update1'] as $update1)  ?>
 <?php $upload= URLROOT . "/public/upload/"; ?>
 <link rel="shortcut icon" href="data:image/png;base64,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" />
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
@@ -106,29 +107,41 @@ height: 40px;
         </div>
         <div class="col-sm p-3 min-vh-100">
 <div class="form">
-<form action="<?php echo URLROOT; ?>/vehicles/update_vehicle1" method="POST" class="form-container" enctype="multipart/form-data">
+<form action="<?php echo URLROOT; ?>/vehicles/update_Reservation1" method="POST" class="form-container" enctype="multipart/form-data">
     <h1>Update vehicle</h1>
     <label for="id"><b>id :</b></label>
-    <input type="text" name="id" value="<?php echo $update->id ?>"  required>
-    <label for="name"><b>Name :</b></label>
-    <input type="text" name="name" value="<?php echo $update->name ?>"   required>
-    <label for="model"><b>Model :</b></label>
-    <input type="text" name="model"  value="<?php echo $update->model ?>" required>
+    <input type="text" name="id" value="<?php echo $update->id ?>"  readonly>
+    <label for="véhicule_résérver"><b>Vehicle name :</b></label> <br>
+    <select name="véhicule_résérver" id="véhicule_résérver">
+    <option selected="selected" value="<?php echo $update->véhicule_résérver ?>"><?php echo $update->véhicule_résérver ?></option>
+ <?php foreach($data['vehicles'] as $vehicle) : ?>
+  <option value="<?php echo $vehicle->name ?>"><?php echo $vehicle->name ?></option>
+  <?php endforeach; ?>
+    </select><br><br>
+    <label for="model"><b>Vehicle model :</b></label> <br>
+    <select name="model" id="véhicule_résérver">
+    <option selected="selected" value="<?php echo $update->véhicule_résérver_model ?>"><?php echo $update->véhicule_résérver_model ?></option>
+ <?php foreach($data['vehicles'] as $vehicle) : ?>
+  <option value="<?php echo $vehicle->model ?>"><?php echo $vehicle->model ?></option>
+  <?php endforeach; ?>
+    </select><br><br>
+    
+    <label for="user_résérvé_par"><b>User name  :</b></label>
+    <input type="text" name="user_résérvé_par"  value="<?php echo $update->user_résérvé_par ?>" readonly>
+    <label for="date_réserve"><b>Pick-up Date  :</b></label>
+    <input type="date" name="date_réserve" value="<?php echo $update->date_réserve ?>" min="<?php
+         echo date('Y-m-d');
+     ?>"  required>
+    <label for="date_fin">Drop-off Date :</label>
+    <input type="date"  value="<?php echo $update->date_fin ?>" name="date_fin" min="<?php
+         echo date('Y-m-d');
+     ?>" />
     <label for="Price"><b>Price :</b></label>
-    <input type="text" name="Price" value="<?php echo $update->Price ?>"  required>
-    <label for="img">Select image:</label>
-    <input type="file" id="image1" value="<?php echo $update->image ?>" name="image" />
-    <label for="description"><b>Description :</b></label>
-    <input type="text" name="description" value="<?php echo $update->description ?>"  required>
-    <label for="Disponible"><b>Quantity :</b></label>
-    <input type="text" name="Disponible" value="<?php echo $update->Disponible ?>"  required>
-    <label for="catégory"><b>Catégory :</b></label>
-    <input type="text" name="catégory" value="<?php echo $update->catégory ?>"  list="vehicle" required>
-<datalist id="vehicle">
-  <option>Car</option>
-  <option>Trucks</option>
-  <option>Motorcycle</option>
-</datalist>
+    <input type="number" name="Price" value="<?php echo $update1->Price ?>"  readonly>
+    
+    <label for="number_of_véhicule"><b>Quantity :</b></label>
+    <input type="number" name="number_of_véhicule" min="1" value="<?php echo $update->number_of_véhicule ?>"   required>
+   
 
     <button type="submit" value="add_vehicle" class="btn"><i class="fas fa-edit"></i> Update </button>
 
