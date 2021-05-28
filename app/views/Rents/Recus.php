@@ -208,7 +208,7 @@ h1
 <br>
 <section class="container">
 <h1>You Reservation added successfully with number : <?php echo $veh1->id?></h1>
-  <div class="row">
+  <div id="print" class="row">
     <article class="card fl">
       <section class="date">
         <time datetime="">
@@ -232,13 +232,24 @@ h1
             Price : <?php echo $veh1->Price ?>
           </p>
         </div>
-        <a onclick="window.print();" href="#">Get My ticket</a>
+        <a onclick="printDiv('print')" href="#">Get My ticket</a>
       </section>
     </article>
-    <a href="<?php echo URLROOT; ?>/Menus/showVehicle" class="btn btn-primary">Go Back </a>
+   
     </section>
    
     </div>
-    
-    
 </body>
+<script>
+function printDiv(divName){
+    var printContents = document.getElementById(divName).innerHTML;
+    var originalContents = document.body.innerHTML;
+
+    document.body.innerHTML = printContents;
+
+    window.print();
+
+    document.body.innerHTML = originalContents;
+
+}
+</script>
