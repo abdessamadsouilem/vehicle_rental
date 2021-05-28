@@ -141,8 +141,8 @@ $disCar[]= $car['total'];
 <?php endforeach;?>
 
 <?php foreach($data['Res1'] as $Res1) : ?>
-<?php  $result1= $Res1->véhicule_résérver_model; 
-$total1=$Res1->number_of_véhicule;
+<?php  $result1= $Res1->monthname; 
+$total1=$Res1->total;
 $car1 = [
     'result1' => $result1,
     'total1' => $total1

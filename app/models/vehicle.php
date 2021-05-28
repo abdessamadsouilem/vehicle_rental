@@ -113,7 +113,7 @@ public function delete_user($id){
     }
 }
 public function show_Res(){
-    $query = "SELECT * FROM `résérvation`";
+    $query = "SELECT MONTHNAME(date_get_reservation) as monthname, COUNT(id) as total FROM résérvation GROUP BY MONTH(date_get_reservation)";
     $stmt = $this->pdo->prepare($query);
     $stmt->execute();
     $result = $stmt->fetchAll(PDO::FETCH_OBJ);
