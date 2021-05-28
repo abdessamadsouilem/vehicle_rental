@@ -33,7 +33,8 @@
         <h1>Rent a Vehicle</h1>
         <br>
         <h5>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, facilis.</h5>
-        
+        <br>
+        <a href="<?php echo URLROOT; ?>/Menus/showVehicle" type="button" class="btn btn-light">Rent Now</a>
       </div>
     </div>
     <div class="carousel-item">
@@ -42,6 +43,8 @@
         <h1>Quality Services</h1>
         <br>
         <h5>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, facilis.</h5>
+        <br>
+        <a href="<?php echo URLROOT; ?>/Menus/showVehicle" type="button" class="btn btn-light">Rent Now</a>
       </div>
     </div>
     <div class="carousel-item">
@@ -50,6 +53,8 @@
         <h1>Best Cars Rental in Morocco</h1>
         <br>
         <h5>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, facilis.</h5>
+        <br>
+        <a href="<?php echo URLROOT; ?>/Menus/showVehicle" type="button" class="btn btn-light">Rent Now</a>
       </div>
     </div>
   </div>
