@@ -69,6 +69,11 @@ height: 40px;
                         </a>
                     </li>
                     <li>
+                        <a href="<?php echo URLROOT; ?>/vehicles/Reservation" class="nav-link py-3 px-2" title="my reservation" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Customers">
+                        <i class="fas fa-shopping-bag"></i>
+                        </a>
+                    </li>
+                    <li>
                         <a href="<?php echo URLROOT; ?>/vehicles/vehicle" class="nav-link py-3 px-2" title="vehicles" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Products">
                         <i class="fas fa-car"></i>
                         </a>
