@@ -108,9 +108,12 @@ public function Details(){
 $update = $this->RentModel->getInformation($id);
 
 if($update!=null){
+$comment=$this->RentModel->getComments($id);
+$commentNum=$this->RentModel->getNumComments($id);
 $data = [
     'updates' => $update,
-   
+    'comment' => $comment,
+    'commentNum' => $commentNum
   ];
 
 $this->view("Rents/Details",$data);
@@ -131,19 +134,37 @@ public function like($vé){
         if($this->RentModel->selectLike($id,$vé)===true){
             if($this->RentModel->newLike($id,$vé)===true){
             if($this->RentModel->Like($vé,$like)===true){
-                redirect("Rents/Details");
+                redirect("Rents/Details?id=$vé");
             }
             
         }
         }else{
-            redirect("Rents/Details");
+            redirect("Rents/Details?id=$vé");
         }
         
         
     }
     else{
         flash1('register_not',"you cannot like véhicle or commented if you don't have account ");
-        redirect("Rents/Details");
+        redirect("Rents/Details?id=$vé");
+    }
+}
+
+public function comment($vé){
+    if((isset($_SESSION['User'])) && $_SESSION['User']  === true || isset($_SESSION['loginAdmin']) && $_SESSION['loginAdmin'] ===true ){
+    $id = $_SESSION['id'];
+    if($_SERVER['REQUEST_METHOD'] == 'POST'){
+     $comment=$_POST['comments'];
+     $date=date("Y-m-d");
+     if($this->RentModel->newComment($id,$vé,$comment,$date)===true){
+        redirect("Rents/Details?id=$vé");
+     }
+    
+    }
+    }
+    else{
+        flash1('register_not',"you cannot like véhicle or commented if you don't have account ");
+        redirect("Rents/Details?id=$vé");
     }
 }
 
