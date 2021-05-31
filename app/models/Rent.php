@@ -105,4 +105,29 @@ public function Like($vé,$like){
       return false;
   }
 }
+public function newComment($id,$vé,$comment,$date){
+  $query = "INSERT INTO `comments` ( `user_id`, `véhicule_id`, `comments`, `date_comments`) VALUES  ('$id','$vé','$comment','$date')";
+  $stmt = $this->pdo->prepare($query);
+  if($stmt->execute()){
+      return true;
+  }else{
+      return false;
+  }
+}
+public function getComments($id){
+  $id;
+  $query = "SELECT `comments` FROM `comments` WHERE `véhicule_id`='$id'";
+        $stmt = $this->pdo->prepare($query);
+        $stmt->execute();
+        $result = $stmt->fetchAll(PDO::FETCH_OBJ);
+        return $result;
+}
+public function getNumComments($id){
+  $id;
+  $query = "SELECT COUNT(comments) as num FROM `comments` WHERE `véhicule_id`='$id'";
+        $stmt = $this->pdo->prepare($query);
+        $stmt->execute();
+        $result = $stmt->fetchAll(PDO::FETCH_OBJ);
+        return $result;
+}
 }
