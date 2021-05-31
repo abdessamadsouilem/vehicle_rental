@@ -3,6 +3,10 @@
 <?php foreach($data['updates'] as $update)  ?>
 <?php foreach($data['commentNum'] as $commentNum)  ?>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <style>
 #create_vehicle{
     width: 782px;
@@ -41,6 +45,8 @@ input{
   outline:none;
 }
 .comments{
+    display: flex;
+    align-items: center;
     width: 80%;
     padding:10px;
     margin-left:20px;
@@ -56,6 +62,12 @@ button {
 	font: inherit;
 	cursor: pointer;
 	outline: inherit;
+}
+.profile{
+    width: 3rem;
+    height: 3rem;
+    margin-right:20px;
+    
 }
 </style>
 
@@ -89,8 +101,16 @@ button {
 <br>
 <?php foreach($data['comment'] as $comment) : ?>
 <div class="comments">
+<img class="profile" src="<?php echo URLROOT ?>/public/img/men.png" data-toggle="tooltip" data-placement="bottom" title="Tooltip on top" alt="">
 <h5><?php echo $comment->comments ?></h5>
 </div>
 <?php  endforeach ?>
 </div>
 </div>
+
+
+<script>
+$(document).ready(function(){
+  $('[data-toggle="tooltip"]').tooltip();   
+});
+</script>
