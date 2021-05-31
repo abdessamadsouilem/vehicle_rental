@@ -9,12 +9,17 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <style>
 #create_vehicle{
-    width: 782px;
+    width: 60%;
     margin-top:1rem;
     display:flex;
     flex-direction:column;
     justify-content:center;
     align-items:center;
+}
+@media (max-width:600px) {
+    #create_vehicle{
+    width: 90%;
+    }
 }
 img{
    width:32rem;
