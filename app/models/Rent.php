@@ -130,4 +130,12 @@ public function getNumComments($id){
         $result = $stmt->fetchAll(PDO::FETCH_OBJ);
         return $result;
 }
+public function getPersonName($id){
+  $id;
+  $query = "SELECT x.name ,y.véhicule_id,y.comments from person as x INNER JOIN comments as y on y.user_id=x.id where véhicule_id= '$id'";
+        $stmt = $this->pdo->prepare($query);
+        $stmt->execute();
+        $result = $stmt->fetchAll(PDO::FETCH_OBJ);
+        return $result;
+}
 }

@@ -99,12 +99,14 @@ button {
 <button type="submit">   <i class="fas fa-paper-plane"></i></button>
 </form>
 <br>
-<?php foreach($data['comment'] as $comment) : ?>
+
+    <?php foreach($data['personName']as $personName) :?>
 <div class="comments">
-<img class="profile" src="<?php echo URLROOT ?>/public/img/men.png" data-toggle="tooltip" data-placement="bottom" title="Tooltip on top" alt="">
-<h5><?php echo $comment->comments ?></h5>
+<img class="profile" src="<?php echo URLROOT ?>/public/img/men.png" data-toggle="tooltip" data-placement="bottom" title="<?php echo $personName->name ?>" alt="">
+<h5><?php echo $personName->comments ?></h5>
 </div>
-<?php  endforeach ?>
+<?php endforeach ?>
+<br>
 </div>
 </div>
 

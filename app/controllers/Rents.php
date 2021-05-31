@@ -108,12 +108,14 @@ public function Details(){
 $update = $this->RentModel->getInformation($id);
 
 if($update!=null){
-$comment=$this->RentModel->getComments($id);
+
 $commentNum=$this->RentModel->getNumComments($id);
+$personName=$this->RentModel->getPersonName($id);
 $data = [
     'updates' => $update,
-    'comment' => $comment,
-    'commentNum' => $commentNum
+    
+    'commentNum' => $commentNum,
+    'personName' => $personName
   ];
 
 $this->view("Rents/Details",$data);
