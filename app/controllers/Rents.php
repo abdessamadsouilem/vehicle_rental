@@ -102,6 +102,52 @@ public function Recus(){
     }
     
 }
+public function Details(){
+    $id=$_GET['id']; 
+    
+$update = $this->RentModel->getInformation($id);
+
+if($update!=null){
+$data = [
+    'updates' => $update,
+   
+  ];
+
+$this->view("Rents/Details",$data);
+    
+}else{
+    redirect("Menus/showVehicle");
+}
+}
+public function like($vé){
+    if((isset($_SESSION['User'])) && $_SESSION['User']  === true || isset($_SESSION['loginAdmin']) && $_SESSION['loginAdmin'] ===true ){
+        $id = $_SESSION['id'];
+        $likes= $this->RentModel->getAll($vé);
+        $data = [
+          'likes' => $likes
+        ];
+        foreach($data['likes'] as $likes)
+        $like=$likes->likes;
+        if($this->RentModel->selectLike($id,$vé)===true){
+            if($this->RentModel->newLike($id,$vé)===true){
+            if($this->RentModel->Like($vé,$like)===true){
+                redirect("Rents/Details");
+            }
+            
+        }
+        }else{
+            redirect("Rents/Details");
+        }
+        
+        
+    }
+    else{
+        flash1('register_not',"you cannot like véhicle or commented if you don't have account ");
+        redirect("Rents/Details");
+    }
+}
+
+
 }
 
 
