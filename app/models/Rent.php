@@ -69,4 +69,40 @@ public function getAl($id){
   $result = $stmt->fetchAll(PDO::FETCH_OBJ);
   return $result;
 }
+public function selectLike($id,$vé){
+  $query = "SELECT * FROM `social` where `user_id` = '$id' and `véhicle_id`='$vé'";
+  $stmt = $this->pdo->prepare($query);
+  $stmt->execute();
+  $result = $stmt->fetchAll(PDO::FETCH_OBJ);
+  if(empty($result)){
+    return true;
+  }else{
+    return false;
+  }
+}
+public function newLike($id,$vé){
+  $query = "INSERT INTO `social` (user_id, véhicle_id) values ('$id','$vé')";
+  $stmt = $this->pdo->prepare($query);
+  if($stmt->execute()){
+      return true;
+  }else{
+      return false;
+  }
+}
+public function getAll($vé){
+  $query = "SELECT * FROM `véhicule` where `id` = '$vé'";
+  $stmt = $this->pdo->prepare($query);
+  $stmt->execute();
+  $result = $stmt->fetchAll(PDO::FETCH_OBJ);
+  return $result;
+}
+public function Like($vé,$like){
+  $query = "UPDATE `véhicule` SET  `likes` = $like+1  where `id` = '$vé'";
+  $stmt = $this->pdo->prepare($query);
+  if($stmt->execute()){
+      return true;
+  }else{
+      return false;
+  }
+}
 }

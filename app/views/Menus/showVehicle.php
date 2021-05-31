@@ -53,6 +53,7 @@
     <h5 class="card-title">Model : <?php echo $vehicle->model ?></h5>
     <p class="card-text"><?php echo $vehicle->description ?></p>
     <h6 class="card-text">Price : <?php echo $vehicle->Price ?> dh</h6>
+    <a href="<?php echo URLROOT; ?> /Rents/Details?id=<?php echo $vehicle->id ?>" class="btn btn-success">Details</a>
     <a href="<?php echo URLROOT; ?> /Rents/RentVehicle?id=<?php echo $vehicle->id ?>" class="btn btn-primary">Rent Now</a>
   </div>
 </div>
