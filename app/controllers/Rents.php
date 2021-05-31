@@ -66,8 +66,8 @@ class Rents extends Controller {
         $days = floor(($diff - $years * 365*60*60*24 - 
              $months*30*60*60*24)/ (60*60*24));
         $price1=$number_of_véhicule*$Price*$days;   
+        if($Disponible1>1){
         if($this->RentModel->CheckRent($number_of_véhicule,$date_fin,$date_réserve,$user_résérvé_par,$véhicule_résérver,$price1,$véhicule_résérver_model,$véhicule_catégory,$date_get_reservation)===true){
-            if($Disponible1>0){
             $Disponible=$Disponible1-$number_of_véhicule;
             if($this->RentModel->updateQuantity($Disponible,$id)===true){
             
@@ -76,14 +76,14 @@ class Rents extends Controller {
                 flash1('register_not','something went wrong , try again');
                 redirect('Menus/showVehicle');
               }
-             
-   }else {
+            }
+             }else {
     flash1('register_not','car not disponible');
     redirect('Menus/showVehicle');
    }
 }
     }
-}
+
 public function Recus(){
     if((isset($_SESSION['User'])) && $_SESSION['User']  === true || isset($_SESSION['loginAdmin']) && $_SESSION['loginAdmin'] ===true ){
         $user=$_SESSION['name'];
