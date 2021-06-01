@@ -98,7 +98,7 @@ height: 40px;
                         <i class="bi-person-circle h2"></i>
                     </a>
                     <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser3">
-                        <li><a class="dropdown-item" href="#">Profile</a></li>
+                       
                         <li><a class="dropdown-item" href="<?php echo URLROOT; ?>/users/logout">Log out</a></li>
                     </ul>
                 </div>
