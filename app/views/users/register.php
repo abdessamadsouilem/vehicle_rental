@@ -5,6 +5,8 @@
         height: auto;
         display: flex;
         font-size:15px;
+        justify-content:center;
+        align-items: center;
     }
     
     .icon {
@@ -16,6 +18,22 @@
     .icon img{
         width: 700px;
         height: 400px;
+    }
+    @media screen and (max-width: 858px) {
+        .all{
+            flex-direction:column;
+        }
+        .col-md-5{
+          margin-left: 0px !important;
+        }
+        .icon img{
+        margin-top:50px;
+        width: 80%;
+        height: 330px;
+    }
+        .icon {
+            display: none;
+        }
     }
 </style>
   <div class="all">
