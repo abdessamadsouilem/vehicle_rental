@@ -197,7 +197,7 @@ public function delete_vehicle(){
     }
     public function ReservationAdmin(){
       if (isset($_SESSION['loginAdmin']) && $_SESSION['loginAdmin']  === true){
-        $Res = $this->vehicleModel->show_Res();
+        $Res = $this->vehicleModel->show_Res1();
               $data = [
                 'Res' => $Res
               ];

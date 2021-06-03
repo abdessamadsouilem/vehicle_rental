@@ -119,6 +119,13 @@ public function show_Res(){
     $result = $stmt->fetchAll(PDO::FETCH_OBJ);
     return $result;  
 }
+public function show_Res1(){
+    $query = "SELECT * FROM résérvation ";
+    $stmt = $this->pdo->prepare($query);
+    $stmt->execute();
+    $result = $stmt->fetchAll(PDO::FETCH_OBJ);
+    return $result;  
+}
 public function checkVeh($carName,$carModel){
     $query = "SELECT * FROM `véhicule` where `name` = '$carName' and `model`='$carModel'";
     $stmt = $this->pdo->prepare($query);
